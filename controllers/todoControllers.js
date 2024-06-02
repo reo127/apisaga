@@ -47,7 +47,7 @@ const deleteTodo = async(req, res) =>{
 }
 
 
-const getTodo = async(req, res) =>{
+const getTodos = async(req, res) =>{
     try {
         const success = await Todo.find()
         if(success){
@@ -59,4 +59,16 @@ const getTodo = async(req, res) =>{
     }
 }
 
-module.exports = {postTodo, updateTodo, deleteTodo, getTodo}
+const getTodo = async(req, res) =>{
+    try {
+        const success = await Todo.findById(req.params.id)
+        if(success){
+            res.status(200).send({success, "massage": "ok...."})
+        }
+        res.status(400).send({"massage": "NOT ok...."})
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+module.exports = {postTodo, updateTodo, deleteTodo, getTodos, getTodo}
