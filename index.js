@@ -11,6 +11,6 @@ app.use(express.urlencoded({extended:true}))
 database()
 app.use(userRouter)
 
-app.listen(3000, ()=>{
-    console.log("server started at 3000...");
+app.listen(8000, ()=>{
+    console.log("server started at 8000...");
 })

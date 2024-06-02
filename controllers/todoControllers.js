@@ -1,9 +1,11 @@
 const Todo = require("../models/TodoSchema")
 
+
+
 const postTodo = async(req, res) =>{
     try {
-        console.log(req.params.todo);
-        const success = await Todo.create({todo: req.params.todo})
+        const {todo} = req.body
+        const success = await Todo.create({todo: todo})
         if(success){
             res.status(200).send({"massage": "Todo created...."})
         }
@@ -18,8 +20,8 @@ const postTodo = async(req, res) =>{
 
 const updateTodo = async(req, res) =>{
     try {
-        console.log(req.params.updatedtodo);
-        const success = await Todo.findByIdAndUpdate(req.params.id, {todo: req.params.updatedtodo})
+        const {todo} = req.body
+        const success = await Todo.findByIdAndUpdate(req.params.id, {todo: todo})
         if(success){
             res.status(200).send({"massage": "Todo Updated...."})
         }
