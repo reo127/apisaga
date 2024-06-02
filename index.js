@@ -11,6 +11,6 @@ app.use(express.urlencoded({extended:true}))
 database()
 app.use("/todos",todosRouter)
 
-app.listen(8000, ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log("server started at 8000...");
 })
