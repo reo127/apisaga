@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const userRouter = require('./router/userRouter')
+const todosRouter = require('./router/todosRouter')
 const database = require('./database')
 require('dotenv').config()
 
@@ -9,7 +9,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 database()
-app.use(userRouter)
+app.use("/todos",todosRouter)
 
 app.listen(8000, ()=>{
     console.log("server started at 8000...");

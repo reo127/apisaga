@@ -3,9 +3,9 @@ const { postTodo, updateTodo, deleteTodo, getTodo } = require('../controllers/to
 const router = express.Router()
 
 
-router.post('/posttodo', postTodo)
+router.post('/createtodo', postTodo)
 router.put('/updatetodo/:id', updateTodo)
-router.delete('/tododeleted/:id', deleteTodo)
-router.get('/gettodo', getTodo)
+router.delete('/deletetodo/:id', deleteTodo)
+router.get('/alltodos', getTodo)
 
 module.exports = router
