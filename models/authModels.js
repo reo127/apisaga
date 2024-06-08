@@ -23,15 +23,15 @@ const authuser = mongoose.Schema({
         lowercase: true,
         trim: true,
       },
+      password: {
+        type: String,
+        required: [true, "Password is required"],
+      },
       role: {
         type: String,
         enum: AvailableUserRoles,
         default: UserRolesEnum.USER,
         required: true,
-      },
-      password: {
-        type: String,
-        required: [true, "Password is required"],
       },
       loginType: {
         type: String,
