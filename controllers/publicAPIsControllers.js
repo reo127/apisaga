@@ -30,4 +30,19 @@ const randomProductController = async(req, res) => {
     }
 }
 
-module.exports = { jokesController, quoteController, randomProductController };
+
+const randomsProductsById = async(req, res) => {
+    try {
+        let productsList = []
+        const randomIndex = Math.floor(Math.random() * products.length);
+        for(let i = 0; i < req.params.quantity; i++){
+            productsList.push(products[randomIndex])
+        }
+
+        res.status(200).json(productsList)
+    } catch (error) {
+        res.status(400).json(error.message || "something wrond");
+    }
+}
+
+module.exports = { jokesController, quoteController, randomProductController, randomsProductsById };
