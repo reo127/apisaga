@@ -89,6 +89,10 @@ const registerUser = async (req, res) => {
   }
 }
 
+
+/*
+@Paramiters : email, username, password
+*/
 const login = async (req, res) => {
   try {
     const { email, username, password } = req.body;
@@ -132,9 +136,38 @@ const login = async (req, res) => {
       .json({ user: loggedInUser, accessToken, refreshToken, message: "User logged in successfully" }); // send access and refresh token in response if client decides to save them by themselves 
 
   } catch (error) {
-    console.log("error => ", error)
-    console.log("error message => ", error.message)
+    console.log(error)
+    console.log(error.message)
   }
 }
 
-module.exports = { registerUser, login }
+const logout = async(req, res) => {
+  try {
+    await Auth.findByIdAndUpdate(
+      req.user._id,
+      {
+        $set: {
+          refreshToken: '',
+        },
+      },
+      { new: true }
+    );
+  
+    const options = {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+    };
+
+    return res
+    .status(200)
+    .clearCookie("accessToken", options)
+    .clearCookie("refreshToken", options)
+    .json({message: "User logged out"});
+
+  } catch (error) {
+    console.log(error)
+    console.log(error.message)
+  }
+}
+
+module.exports = { registerUser, login, logout }
