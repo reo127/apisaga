@@ -16,7 +16,7 @@ app.use(cookieParser());
 database()
 app.use("/todos",todosRouter)
 app.use("/auth", authRouter)
-app.use("/joke", publicAPIsRotuer)
+app.use("/random", publicAPIsRotuer)
 
 app.listen(process.env.PORT, ()=>{
     console.log(`server started at ${process.env.PORT}`);
