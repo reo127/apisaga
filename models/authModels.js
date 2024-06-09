@@ -44,6 +44,7 @@ const authuser = mongoose.Schema({
       },
       refreshToken: {
         type: String,
+        default: ""
       },
       forgotPasswordToken: {
         type: String,
@@ -58,5 +59,29 @@ const authuser = mongoose.Schema({
         type: Date,
       },
 }, { timestamps: true });
+
+authuser.methods.generateAccessToken = function () {
+  return jwt.sign(
+    {
+      _id: this._id,
+      email: this.email,
+      username: this.username,
+      role: this.role,
+    },
+    process.env.ACCESS_TOKEN_SECRET,
+    { expiresIn: "1h" }
+  );
+};
+
+authuser.methods.generateRefreshToken = function () {
+  return jwt.sign(
+    {
+      _id: this._id,
+    },
+    process.env.REFRESH_TOKEN_SECRET,
+    { expiresIn: "24h" }
+  );
+};
+
 
 module.exports = mongoose.model("AuthUser", authuser);

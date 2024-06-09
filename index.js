@@ -14,5 +14,5 @@ app.use("/todos",todosRouter)
 app.use("/auth", authRouter)
 
 app.listen(process.env.PORT, ()=>{
-    console.log("server started at 8000...");
+    console.log(`server started at ${process.env.PORT}`);
 })
