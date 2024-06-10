@@ -14,7 +14,7 @@ const jokesController = (req, res) => {
 const quoteController = (req, res) => {
     try {
         const randomIndex = Math.floor(Math.random() * quotes.length);
-        res.status(200).json(jokes[randomIndex])
+        res.status(200).json(quotes[randomIndex])
     } catch (error) {
         res.status(400).json(error.message || "something wrond");
     }
