@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const app = express()
 const cookieParser = require("cookie-parser");
 const todosRouter = require('./router/todosRouter')
@@ -7,7 +8,7 @@ const publicAPIsRotuer = require("./router/publicAPIsRotuer")
 const database = require('./database')
 require('dotenv').config()
 
-
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cookieParser());
