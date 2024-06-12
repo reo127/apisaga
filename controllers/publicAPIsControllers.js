@@ -34,8 +34,8 @@ const randomProductController = async(req, res) => {
 const randomsProductsById = async(req, res) => {
     try {
         let productsList = []
-        const randomIndex = Math.floor(Math.random() * products.length);
         for(let i = 0; i < req.params.quantity; i++){
+            const randomIndex = Math.floor(Math.random() * products.length);
             productsList.push(products[randomIndex])
         }
 
