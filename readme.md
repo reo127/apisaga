@@ -8,8 +8,6 @@ We are trying to build a single source API hub that can be used to learn api han
 
 ## Todo APIs
 
-#### Get all items
-
 ```http
   GET    : https://apisaga.vercel.app/todos/alltodos
   GET    : https://apisaga.vercel.app/todos/gettodo/:id
@@ -26,5 +24,22 @@ We are trying to build a single source API hub that can be used to learn api han
 | `PUT` | https://apisaga.vercel.app/todos/updatetodo/:id | **REQ Parameters** :`id`, **BODY** :`todo` |
 | `DELETE` | https://apisaga.vercel.app/todos/deletetodo/:id |**REQ Parameters**: `id`|
 
-#### 
+---
+
+
+## Authentications  APIs
+
+```http
+  POST    : https://apisaga.vercel.app/auth/register
+  POST    : https://apisaga.vercel.app/todos/gettodo/:id
+  POST   : https://apisaga.vercel.app/todos/createtodo
+```
+
+| Name | API     | Parameters                |
+| :-------- | :------- | :------------------------- |
+| `POST` | https://apisaga.vercel.app/todos/alltodos | **BODY**:  `email` `username` `password`|
+| `POST` | https://apisaga.vercel.app/auth/login | **BODY**:  `email` `username` `password`|
+| `POST` | https://apisaga.vercel.app/auth/logout |**NONE**|
+
+---
 
