@@ -43,3 +43,22 @@ We are trying to build a single source API hub that can be used to learn api han
 
 ---
 
+
+## Public  APIs
+
+```http
+  GET   : https://apisaga.vercel.app/random/joke
+  GET   : https://apisaga.vercel.app/random/quote
+  GET   : https://apisaga.vercel.app/random/product
+  GET   : https://apisaga.vercel.app/random/products/:quantity
+```
+
+| Name | API     | Parameters                |
+| :-------- | :------- | :------------------------- |
+| `POST` | https://apisaga.vercel.app/random/joke | **NONE**|
+| `POST` | https://apisaga.vercel.app/random/quote | **NONE**|
+| `POST` | https://apisaga.vercel.app/random/product |**NONE**|
+| `POST` | https://apisaga.vercel.app/random/products/:quantity |**REQ Parameters**: `quantity`|
+
+---
+
