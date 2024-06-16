@@ -63,7 +63,7 @@ const getTodos = async (req, res) => {
     try {
         const success = await Todo.find()
         if (success) {
-            res.status(200).send({ success, "massage": "ok...." })
+            res.status(200).send(success)
         }
         res.status(400).send({ "massage": "NOT ok...." })
     } catch (err) {
