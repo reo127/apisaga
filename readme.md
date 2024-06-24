@@ -37,7 +37,7 @@ We are trying to build a single source API hub that can be used to learn api han
 
 | Name | API     | Parameters                |
 | :-------- | :------- | :------------------------- |
-| `POST` | https://apisaga.vercel.app/todos/alltodos | **BODY**:  `email` `username` `password`|
+| `POST` | https://apisaga.vercel.app/auth/register | **BODY**:  `email` `username` `password`|
 | `POST` | https://apisaga.vercel.app/auth/login | **BODY**:  `email` `username` `password`|
 | `POST` | https://apisaga.vercel.app/auth/logout |**NONE**|
 
@@ -55,10 +55,10 @@ We are trying to build a single source API hub that can be used to learn api han
 
 | Name | API     | Parameters                |
 | :-------- | :------- | :------------------------- |
-| `POST` | https://apisaga.vercel.app/random/joke | **NONE**|
-| `POST` | https://apisaga.vercel.app/random/quote | **NONE**|
-| `POST` | https://apisaga.vercel.app/random/product |**NONE**|
-| `POST` | https://apisaga.vercel.app/random/products/:quantity |**REQ Parameters**: `quantity`|
+| `GET` | https://apisaga.vercel.app/random/joke | **NONE**|
+| `GET` | https://apisaga.vercel.app/random/quote | **NONE**|
+| `GET` | https://apisaga.vercel.app/random/product |**NONE**|
+| `GET` | https://apisaga.vercel.app/random/products/:quantity |**REQ Parameters**: `quantity`|
 
 ---
 
